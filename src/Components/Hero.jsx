@@ -1,14 +1,14 @@
 import React from "react";
-import HeroSlider, { Slide, Nav } from "hero-slider";
+import HeroSlider, { Slide, Nav, Overlay } from "hero-slider";
 import Wrapper from "../Components/UI/Wrapper";
 import Title from "../Components/UI/Title";
 import Subtitle from "../Components/UI/Subtitle";
 
 // Images
-const bogliasco = "https://i.imgur.com/Gu5Cznz.jpg";
-const countyClare = "https://i.imgur.com/idjXzVQ.jpg";
-const craterRock = "https://i.imgur.com/8DYumaY.jpg";
-const giauPass = "https://i.imgur.com/8IuucQZ.jpg";
+import pastelchocolateImage from "../img/pastelchocolate.jpg";
+import pastelfresaImage from "../img/pastelfresa.jpg";
+import pastelcumpleañosImage from "../img/pastelcupleaños.jpg";
+import tortasypudinesImage from "../img/tortasypudines.jpg";
 
 export default function Hero() {
     return (
@@ -22,6 +22,7 @@ export default function Hero() {
             onChange={(nextSlide) => console.log("onChange", nextSlide)}
             onAfterChange={(nextSlide) => console.log("onAfterChange", nextSlide)}
             style={{
+                color: "white",
                 backgroundColor: "rgba(0, 0, 0, 0.33)",
                 height: "100vh",
             }}
@@ -33,41 +34,40 @@ export default function Hero() {
                 autoplayDuration: 5000,
             }}
         >
-            <>
+            <Overlay>
                 <Wrapper>
-                    <Title>Pasteleria Lilliam</Title>
+                    <Title>Pastelería Lilliam</Title>
                     <Subtitle>Comprometidos con la calidad, el dulce sabor en tu paladar</Subtitle>
                 </Wrapper>
-            </>
+            </Overlay>
 
             <Slide
                 background={{
-                    backgroundImage: giauPass,
+                    backgroundImage: `url(${pastelfresaImage})`,
                     backgroundAttachment: "fixed",
                 }}
             />
 
             <Slide
                 background={{
-                    backgroundImage: bogliasco,
+                    backgroundImage: `url(${pastelchocolateImage})`,
                     backgroundAttachment: "fixed",
                 }}
             />
 
             <Slide
                 background={{
-                    backgroundImage: countyClare,
+                    backgroundImage: `url(${pastelcumpleañosImage})`,
                     backgroundAttachment: "fixed",
                 }}
             />
 
             <Slide
                 background={{
-                    backgroundImage: craterRock,
+                    backgroundImage: `url(${tortasypudinesImage})`,
                     backgroundAttachment: "fixed",
                 }}
             />
-
             <Nav />
         </HeroSlider>
     );
