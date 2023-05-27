@@ -1,41 +1,61 @@
-import { HamburgerIcon } from "@chakra-ui/icons"
-import { Flex, Box, useDisclosure, Stack, Link } from "@chakra-ui/react"
-import './Navbar.css'
+import React, { useState, useEffect, useRef } from "react";
+import { FaBars } from "react-icons/fa";
+import { links, social } from "./Data";
 
-export default function Navbar() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+const Navbar = () => {
+    const [showLinks, setShowLinks] = useState(false);
+    const linksContainerRef = useRef(null);
+    const linksRef = useRef(null);
 
+    useEffect(() => {
+        const linksHeight = linksRef.current.getBoundingClientRect().height;
+        if (showLinks) {
+            linksContainerRef.current.style.height = `${linksHeight}px`;
+        } else {
+            linksContainerRef.current.style.height = '0px';
+        }
+    }, [showLinks]);
     return (
-        <div className="App">
-            <Flex
-                py={2}
-                px={4}
-                direction={["column", "row"]}
-                justify="space-between"
-                bg="orange.400"
-            >
-                <Flex alignItems="center" wrap="wrap">
-                    <Flex flexGrow={1} justify="center" /*border='1px'*/>
-                        {/* <Heading ml={[4, 0]}>Zensurance</Heading> */}
-                        <Box ml={[4, 0]}>Box 1</Box>
-                    </Flex>
-                    <HamburgerIcon
-                        onClick={isOpen ? onClose : onOpen}
-                        // border='1px'
-                        display={["inline", "none"]}
-                    />
-                </Flex>
-                <Flex
-                    display={[isOpen ? "flex" : "none", "flex"]}
-                    bg={["teal.500", "orange.400"]}
-                >
-                    <Stack align="center" direction={["column", "row"]}>
-                        <Link>Home</Link>
-                        <Link>About</Link>
-                        <Link>Contact</Link>
-                    </Stack>
-                </Flex>
-            </Flex>
-        </div>
-    )
-}
+        <>
+            <nav>
+                <div className="nav-center">
+                    <div className="nav-header">
+                        <h3 className="logo">Pastelería Lilliam</h3>
+                        <button
+                            className="nav-toggle"
+                            onClick={() => setShowLinks(!showLinks)}
+                        >
+                            <FaBars />
+                        </button>
+                    </div>
+                    <div className="links-container" ref={linksContainerRef}>
+                        <ul className="links" ref={linksRef}>
+                            {links.map((link) => {
+                                const { id, url, text } = link;
+                                return (
+                                    <li key={id}>
+                                        <a href={url}>{text}</a>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <footer>
+                <ul className="social-icons">
+                    {social.map((socialIcon) => {
+                        const { id, url, icon } = socialIcon;
+                        return (
+                            <li key={id}>
+                                <a href={url}>{icon}</a>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </footer>
+        </>
+    );
+};
+
+export default Navbar;
