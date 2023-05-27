@@ -1,5 +1,5 @@
 import React from "react";
-import HeroSlider, { Slide, Nav, OverlayContainer } from "hero-slider";
+import HeroSlider, { Slide, Nav } from "hero-slider";
 import Wrapper from "../Components/UI/Wrapper";
 import Title from "../Components/UI/Title";
 import Subtitle from "../Components/UI/Subtitle";
@@ -33,12 +33,12 @@ export default function Hero() {
                 autoplayDuration: 5000,
             }}
         >
-            <OverlayContainer>
+            <>
                 <Wrapper>
                     <Title>Pasteleria Lilliam</Title>
                     <Subtitle>Comprometidos con la calidad, el dulce sabor en tu paladar</Subtitle>
                 </Wrapper>
-            </OverlayContainer>
+            </>
 
             <Slide
                 background={{
