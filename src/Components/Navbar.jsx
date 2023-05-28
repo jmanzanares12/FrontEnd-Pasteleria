@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaBars } from "react-icons/fa";
 import { links, social } from "./Data";
 
-const Navbar = () => {
+export default function Navbar() {
     const [showLinks, setShowLinks] = useState(false);
     const linksContainerRef = useRef(null);
     const linksRef = useRef(null);
@@ -12,9 +12,10 @@ const Navbar = () => {
         if (showLinks) {
             linksContainerRef.current.style.height = `${linksHeight}px`;
         } else {
-            linksContainerRef.current.style.height = '0px';
+            linksContainerRef.current.style.height = "0px";
         }
     }, [showLinks]);
+
     return (
         <>
             <nav>
@@ -56,6 +57,5 @@ const Navbar = () => {
             </footer>
         </>
     );
-};
+}
 
-export default Navbar;

@@ -35,7 +35,7 @@ export default function Hero() {
             }}
         >
             <Overlay>
-                <Wrapper>
+                <Wrapper style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", fontWeight: "bold" }}>
                     <Title>Pastelería Lilliam</Title>
                     <Subtitle>Comprometidos con la calidad, el dulce sabor en tu paladar</Subtitle>
                 </Wrapper>
