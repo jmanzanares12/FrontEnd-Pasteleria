@@ -1,8 +1,10 @@
 .map-view-container {
     display: flex;
     justify-content: space-between;
-    max-width: 100%; /* Puedes ajustar este valor según tus necesidades */
-    margin: 0 auto; /* Centrar el contenido horizontalmente */
+    max-width: 100%;
+    /* Puedes ajustar este valor según tus necesidades */
+    margin: 0 auto;
+    /* Centrar el contenido horizontalmente */
 }
 
 .contact-container {
@@ -12,5 +14,6 @@
 
 .map-container {
     flex: 1;
-    height: 800px;
+    height: 400px;
+    /* Ajusta la altura del mapa según tus necesidades */
 }
