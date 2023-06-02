@@ -1,0 +1,16 @@
+.map-view-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%; /* Puedes ajustar este valor según tus necesidades */
+    margin: 0 auto; /* Centrar el contenido horizontalmente */
+}
+
+.contact-container {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.map-container {
+    flex: 1;
+    height: 800px;
+}

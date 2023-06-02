@@ -12,8 +12,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { GrInstagram } from "react-icons/gr";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import { FiTwitter } from "react-icons/fi";
+import { FaFacebookF } from "react-icons/fa";
 
 export default function Footer() {
     return (
